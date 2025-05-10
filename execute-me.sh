@@ -1,15 +1,19 @@
 #!/bin/bash
 
-# Check if zenity is installed
 if ! command -v zenity &> /dev/null; then
-    echo "zenity is not installed, lol, installing...."
-    sudo apt update && sudo apt install zenity -y
+    echo "zenity is not installed, lol, installing with Homebrew...."
+    
+    if ! command -v brew &> /dev/null; then
+        echo "Homebrew is not installed. Please install Homebrew first: https://brew.sh"
+        exit 1
+    fi
+
+    brew install zenity
 fi
 
-# Infinite loop with echo and GUI
 while true; do
-    echo "please send me some cash lol"
+    echo "Cos-ibe"
     sleep 1
-    zenity --info --text="Please send me money 💸" --title="Important Message"
+    zenity --info --text="Cos-ibe 💸" --title="Important Message"
 done
 
